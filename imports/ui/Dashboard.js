@@ -1,8 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-
-
 import PrivateHeader from './PrivateHeader';
+import NoteList from './NoteList.js';
 
 export default class Dashboard extends React.Component {
 
@@ -14,8 +13,9 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <PrivateHeader title="Dashboard Page Content"/>
+        <PrivateHeader title="Dashboard"/>
         <div className="page-content">
+          <NoteList/>
         </div>
       </div>
     );
