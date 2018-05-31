@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import PrivateHeader from './PrivateHeader';
 import { Session } from 'meteor/session';
 import NoteList from './NoteList.js';
+import { Notes } from '../api/notes.js';
 import Editor from './Editor.js';
 
 export default class Dashboard extends React.Component {
@@ -13,6 +14,12 @@ export default class Dashboard extends React.Component {
       } else {
         Session.set('selectedNoteId', this.props.match.params.id);
       }
+  }
+
+  componentWillUpdate(nextProps) {
+    if (!Meteor.userId()){
+      this.props.history.replace('/');
+    }
   }
 
   render() {
